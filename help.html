@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-ar="مركز المساعدة | منصة سهالة" data-en="Help Center | Sahala Platform">مركز المساعدة | منصة سهالة</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Admin Theme CSS -->
+    <link rel="stylesheet" href="admin-theme.min.css">
+    <style>
+        :root {
+            --primary: var(--primary-color);
+            --bg: var(--bg-dark);
+            --card: var(--bg-card-glass);
+            --text: var(--text-white);
+            --muted: var(--text-muted);
+            --transition: var(--transition);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text);
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+                padding: 20px 12px;
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            margin: auto;
+            background: var(--card);
+            padding: 3.5rem 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(226, 232, 240, 0.28) !important;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25) !important;
+            backdrop-filter: blur(20px);
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35) !important;
+            border-color: rgba(226, 232, 240, 0.5) !important;
+        }
+
+        body.light-mode .container,
+        [data-theme="light"] .container {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #cbd5e1 !important;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        .theme-toggle-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px !important;
+            left: auto !important;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04) !important;
+            border: 1px solid rgba(226, 232, 240, 0.3) !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+        }
+
+        body.light-mode .theme-toggle-btn,
+        [data-theme="light"] .theme-toggle-btn {
+            background: rgba(0, 0, 0, 0.03) !important;
+            border: 1px solid #cbd5e1 !important;
+        }
+
+        body[dir="rtl"] .theme-toggle-btn {
+            right: 25px !important;
+            left: auto !important;
+        }
+
+        .theme-toggle-btn i {
+            font-size: 1.15rem !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+            -webkit-text-fill-color: initial !important;
+        }
+
+        .theme-toggle-btn i.fa-sun,
+        [data-theme="dark"] .theme-toggle-btn i.fa-sun {
+            color: #a855f7 !important;
+            filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.6)) !important;
+        }
+
+        .theme-toggle-btn i.fa-moon,
+        [data-theme="light"] .theme-toggle-btn i.fa-moon,
+        body.light-mode .theme-toggle-btn i.fa-moon {
+            color: #7c3aed !important;
+            filter: drop-shadow(0 0 5px rgba(124, 58, 237, 0.4)) !important;
+        }
+
+        .theme-toggle-btn:hover {
+            background: rgba(168, 85, 247, 0.22) !important;
+            border-color: #c084fc !important;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        .lang-pill-left {
+            position: absolute;
+            top: 25px;
+            left: 25px !important;
+            right: auto !important;
+            z-index: 10;
+        }
+
+        body[dir="rtl"] .lang-pill-left {
+            left: 25px !important;
+            right: auto !important;
+        }
+
+        .lang-pill {
+            background: rgba(255, 255, 255, 0.04) !important;
+            border: 1px solid rgba(226, 232, 240, 0.3) !important;
+            color: #8b5cf6 !important;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .lang-pill:hover {
+            background: rgba(139, 92, 246, 0.12) !important;
+            border-color: rgba(139, 92, 246, 0.4) !important;
+            box-shadow: 0 0 12px rgba(139, 92, 246, 0.25) !important;
+            transform: translateY(-2px) scale(1.04);
+        }
+
+        .lang-pill:active {
+            transform: translateY(0) scale(0.94);
+        }
+
+        .lang-pill svg {
+            width: 16px;
+            height: 16px;
+            fill: #8b5cf6 !important;
+        }
+
+        .lang-pill:hover svg {
+            fill: #8b5cf6 !important;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .brand-logo {
+            width: 80px;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.35));
+            animation: logoPulse 3s infinite ease-in-out;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.3)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.55)); }
+        }
+
+        h1, h2, .help-card i {
+            color: #a855f7 !important;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+            margin-bottom: 3rem;
+        }
+
+        .help-card {
+            background: var(--bg-card);
+            padding: 2rem 1.5rem;
+            border-radius: 18px;
+            border: 1px solid rgba(226, 232, 240, 0.22) !important;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .help-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            background: rgba(168, 85, 247, 0.05) !important;
+            border-color: rgba(226, 232, 240, 0.5) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .help-card i {
+            font-size: 2.4rem;
+            color: #a855f7 !important;
+            margin-bottom: 1.2rem;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .help-card:hover i {
+            transform: scale(1.2) translateY(-4px);
+        }
+
+        .help-card h3 {
+            color: #a855f7 !important;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .help-card p {
+            color: var(--muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        .support-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(226, 232, 240, 0.28) !important;
+            padding: 2.5rem 2rem;
+            border-radius: 18px;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .support-box:hover {
+            border-color: rgba(226, 232, 240, 0.5) !important;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25) !important;
+            transform: translateY(-4px);
+        }
+
+        body.light-mode .support-box,
+        [data-theme="light"] .support-box,
+        body.light-mode .help-card,
+        [data-theme="light"] .help-card {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #cbd5e1 !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+        }
+
+        body.light-mode .support-box:hover,
+        [data-theme="light"] .support-box:hover,
+        body.light-mode .help-card:hover,
+        [data-theme="light"] .help-card:hover {
+            border-color: #94a3b8 !important;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12) !important;
+        }
+
+        .support-box h2 {
+            color: #a855f7 !important;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .support-box p {
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.92rem;
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%) !important;
+            color: #ffffff !important;
+            padding: 13px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, background 0.35s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.98rem;
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.38) !important;
+            user-select: none;
+        }
+
+        .btn-gold i {
+            font-size: 1.15rem;
+            color: #ffffff !important;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%) !important;
+            color: #ffffff !important;
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(168, 85, 247, 0.55) !important;
+        }
+
+        .btn-gold:hover i {
+            transform: scale(1.25) rotate(-10deg);
+        }
+
+        .btn-gold:active {
+            transform: translateY(0) scale(0.96);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.25);
+        }
+
+        .back-nav {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            margin-top: 1rem;
+        }
+
+        .back-link {
+            color: #ffffff !important;
+            background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%) !important;
+            border: none !important;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.38) !important;
+            user-select: none;
+        }
+
+        .back-link i {
+            font-size: 0.95rem;
+            color: #ffffff !important;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .back-link:hover {
+            background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%) !important;
+            color: #ffffff !important;
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.55) !important;
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .back-link:hover i {
+            transform: translateX(-5px) scale(1.2);
+        }
+
+        body[dir="ltr"] .back-link:hover i {
+            transform: translateX(5px) scale(1.2);
+        }
+
+        .back-link:active {
+            transform: translateY(0) scale(0.96);
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.25);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .copyright-line-1 {
+            white-space: nowrap;
+            display: inline-block;
+            color: var(--text-muted);
+        }
+
+        .copyright-line-2, .sahala-purple {
+            white-space: nowrap;
+            display: inline-block;
+            color: #a855f7 !important;
+            font-weight: 800;
+        }
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.78rem;
+            color: var(--muted);
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .container {
+                padding: 2.8rem 2rem;
+                border-radius: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .support-box {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 2.8rem 1.25rem 1.5rem 1.25rem;
+                border-radius: 16px;
+            }
+
+            .lang-wrapper {
+                top: 15px;
+                left: 15px;
+            }
+
+            body[dir="ltr"] .lang-wrapper {
+                left: auto;
+                right: 15px;
+            }
+
+            .lang-pill {
+                padding: 5px 12px;
+                font-size: 0.78rem;
+            }
+
+            .brand-logo {
+                width: 65px;
+                margin-bottom: 0.8rem;
+            }
+
+            h1 {
+                font-size: 1.45rem;
+            }
+
+            .subtitle {
+                font-size: 0.82rem;
+            }
+
+            .help-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                margin-bottom: 2rem;
+            }
+
+            .help-card {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .help-card i {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .support-box {
+                padding: 1.5rem 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .support-box h2 {
+                font-size: 1.2rem;
+            }
+
+            .support-box p {
+                font-size: 0.85rem;
+            }
+
+            .btn-gold {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+                width: auto;
+                max-width: 100%;
+                white-space: nowrap !important;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .container {
+                padding: 2.5rem 0.9rem 1.2rem 0.9rem;
+            }
+
+            .brand-logo {
+                width: 55px;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button id="themeToggleBtn" class="theme-toggle-btn" type="button" title="تبديل الوضع">
+            <i class="fas fa-sun"></i>
+        </button>
+        <button id="langBtn" class="lang-pill lang-pill-left">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span>EN</span>
+        </button>
+
+        <header>
+            <img src="logo.png" alt="Sahala Logo" class="brand-logo">
+            <h1 data-ar="كيف يمكننا مساعدتك؟" data-en="How can we help?">كيف يمكننا مساعدتك؟</h1>
+            <p class="subtitle" data-ar="مركز الدعم الفني المخصص لعملاء منصة سهالة التقنية" data-en="Dedicated support center for Sahala Platform clients">مركز الدعم الفني المخصص لعملاء منصة سهالة التقنية</p>
+        </header>
+
+        <div class="help-grid">
+            <div class="help-card">
+                <i class="fas fa-key"></i>
+                <h3 data-ar="الوصول للحساب" data-en="Account Access">الوصول للحساب</h3>
+                <p data-ar="تعرف على كيفية استعادة كلمة المرور، إدارة صلاحيات المستخدمين، وتأمين حسابك الإداري."
+                   data-en="Learn how to reset your password, manage user permissions, and secure your admin account.">تعرف على كيفية استعادة كلمة المرور، إدارة صلاحيات المستخدمين، وتأمين حسابك الإداري.</p>
+            </div>
+            <div class="help-card">
+                <i class="fas fa-box-open"></i>
+                <h3 data-ar="إدارة كتالوج المنتجات" data-en="Product Catalog Management">إدارة كتالوج المنتجات</h3>
+                <p data-ar="تعديل المنتجات، رفع الصور، وتنظيم التصنيفات والأسعار الخاصة بمتجرك الإلكتروني."
+                   data-en="Editing products, uploading photos, and organizing categories for your digital store catalog.">تعديل المنتجات، رفع الصور، وتنظيم التصنيفات والأسعار الخاصة بمتجرك الإلكتروني.</p>
+            </div>
+            <div class="help-card">
+                <i class="fas fa-shopping-bag"></i>
+                <h3 data-ar="المبيعات والطلبات" data-en="Sales & Orders">المبيعات والطلبات</h3>
+                <p data-ar="تتبع الطلبات الواردة، تأكيد الشحنات، وإدارة مبيعات العملاء عبر متجرك."
+                   data-en="Tracking incoming orders, confirming shipments, and managing store sales.">تتبع الطلبات الواردة، تأكيد الشحنات، وإدارة مبيعات العملاء عبر متجرك.</p>
+            </div>
+        </div>
+
+        <div class="support-box">
+            <h2 data-ar="ما زلت بحاجة للمساعدة؟" data-en="Still need help?">ما زلت بحاجة للمساعدة؟</h2>
+            <p data-ar="فريقنا التقني متواجد على مدار الساعة لمساعدتك في أي استفسارات أو مشاكل تقنية."
+               data-en="Our technical team is available 24/7 to assist you with any platform issues or inquiries.">فريقنا التقني متواجد على مدار الساعة لمساعدتك في أي استفسارات أو مشاكل تقنية.</p>
+            <a href="https://wa.me/966579274291" target="_blank" rel="noopener noreferrer" class="btn-gold" data-ar="تواصل مع الدعم الفني" data-en="Contact Technical Support" style="white-space: nowrap !important;">
+                <i class="fab fa-whatsapp"></i> <span>تواصل مع الدعم الفني</span>
+            </a>
+        </div>
+
+        <div class="back-nav">
+            <a href="login.html" class="back-link" data-ar="العودة لتسجيل الدخول" data-en="Back to Login">
+                <i class="fas fa-arrow-right"></i> <span>العودة لتسجيل الدخول</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p id="main-copyright-text">
+            <span class="copyright-line-1" data-ar="جميع الحقوق محفوظة © 2026" data-en="All rights reserved © 2026">جميع الحقوق محفوظة © 2026</span>
+            <span class="sahala-purple copyright-line-2" data-ar="منصة سهالة — Sahala Platform" data-en="Sahala Platform">منصة سهالة — Sahala Platform</span>
+        </p>
+    </footer>
+
+    <script>
+        const langBtn = document.getElementById('langBtn');
+
+        function updateLanguage(lang) {
+            document.documentElement.setAttribute('lang', lang);
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+            localStorage.setItem('adminLang', lang);
+            langBtn.querySelector('span').textContent = lang === 'ar' ? 'EN' : 'AR';
+
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    const textSpan = el.querySelector('span');
+                    if (textSpan) textSpan.textContent = text;
+                    else el.textContent = text;
+                }
+            });
+
+            // Adjust back icon direction
+            const backIcon = document.querySelector('.back-link i');
+            if (backIcon) {
+                backIcon.className = lang === 'ar' ? 'fas fa-arrow-right' : 'fas fa-arrow-left';
+            }
+        }
+
+        langBtn.addEventListener('click', () => {
+            const currentLang = document.documentElement.getAttribute('lang') || 'ar';
+            updateLanguage(currentLang === 'ar' ? 'en' : 'ar');
+        });
+
+        // Init from storage
+        const savedLang = localStorage.getItem('adminLang') || 'ar';
+        updateLanguage(savedLang);
+
+        // Smart Back Link Detection
+        (function() {
+            const backBtn = document.querySelector('.back-link');
+            if (!backBtn) return;
+            const isAr = (localStorage.getItem('adminLang') || 'ar') === 'ar';
+            const isLoggedIn = sessionStorage.getItem('admin_logged_out') !== 'true';
+
+            if (isLoggedIn) {
+                backBtn.href = 'dashboard.html';
+                const span = backBtn.querySelector('span');
+                if (span) span.textContent = isAr ? 'الرجوع إلى لوحة التحكم' : 'Back to Dashboard';
+                backBtn.setAttribute('data-ar', 'الرجوع إلى لوحة التحكم');
+                backBtn.setAttribute('data-en', 'Back to Dashboard');
+            }
+        })();
+
+        // Theme Toggle Functionality
+        (function() {
+            const themeBtn = document.getElementById('themeToggleBtn');
+            function applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                if (theme === 'light') {
+                    document.body.classList.add('light-mode');
+                    if (themeBtn) themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+                } else {
+                    document.body.classList.remove('light-mode');
+                    if (themeBtn) themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+                }
+                localStorage.setItem('adminTheme', theme);
+            }
+
+            const savedTheme = localStorage.getItem('adminTheme') || 'dark';
+            applyTheme(savedTheme);
+
+            if (themeBtn) {
+                themeBtn.addEventListener('click', function() {
+                    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+                    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

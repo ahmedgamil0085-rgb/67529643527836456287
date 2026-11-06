@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-ar="سياسة الخصوصية | منصة سهالة" data-en="Privacy Policy | Sahala Platform">سياسة الخصوصية | منصة سهالة</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Admin Theme Central Controller -->
+    <link rel="stylesheet" href="admin-theme.min.css">
+    <style>
+        :root {
+            --primary: var(--primary-color);
+            --bg: var(--bg-dark);
+            --card: var(--bg-card-glass);
+            --text: var(--text-white);
+            --muted: var(--text-muted);
+            --transition: var(--transition);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text);
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            padding: 3.5rem 3rem;
+            background: var(--card);
+            border-radius: 24px;
+            border: 2px solid #a855f7 !important;
+            box-shadow: 0 15px 45px rgba(168, 85, 247, 0.18), 0 0 20px rgba(168, 85, 247, 0.12) !important;
+            backdrop-filter: blur(20px);
+            position: relative;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 25px 60px rgba(168, 85, 247, 0.3) !important;
+            border-color: #9333ea !important;
+        }
+
+        body.light-mode .container,
+        [data-theme="light"] .container {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 2px solid #a855f7 !important;
+            box-shadow: 0 15px 45px rgba(168, 85, 247, 0.18) !important;
+        }
+
+        .theme-toggle-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px !important;
+            left: auto !important;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(168, 85, 247, 0.1) !important;
+            border: 1.5px solid #a855f7 !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+        }
+
+        body[dir="rtl"] .theme-toggle-btn {
+            right: 25px !important;
+            left: auto !important;
+        }
+
+        .theme-toggle-btn i {
+            font-size: 1.15rem !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+            -webkit-text-fill-color: initial !important;
+        }
+
+        .theme-toggle-btn i.fa-sun,
+        [data-theme="dark"] .theme-toggle-btn i.fa-sun {
+            color: #a855f7 !important;
+            filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.6)) !important;
+        }
+
+        .theme-toggle-btn i.fa-moon,
+        [data-theme="light"] .theme-toggle-btn i.fa-moon,
+        body.light-mode .theme-toggle-btn i.fa-moon {
+            color: #7c3aed !important;
+            filter: drop-shadow(0 0 5px rgba(124, 58, 237, 0.4)) !important;
+        }
+
+        .theme-toggle-btn:hover {
+            background: rgba(168, 85, 247, 0.22) !important;
+            border-color: #c084fc !important;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        .lang-pill-left {
+            position: absolute;
+            top: 25px;
+            left: 25px !important;
+            right: auto !important;
+            z-index: 10;
+        }
+
+        body[dir="rtl"] .lang-pill-left {
+            left: 25px !important;
+            right: auto !important;
+        }
+
+        .lang-pill {
+            background: rgba(168, 85, 247, 0.08) !important;
+            border: 1px solid #a855f7 !important;
+            color: #a855f7 !important;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .lang-pill:hover {
+            background: #a855f7 !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 18px rgba(168, 85, 247, 0.45) !important;
+            transform: translateY(-2px) scale(1.04);
+        }
+
+        .lang-pill:active {
+            transform: translateY(0) scale(0.94);
+        }
+
+        .lang-pill svg {
+            width: 16px;
+            height: 16px;
+            fill: #a855f7 !important;
+        }
+
+        .lang-pill:hover svg {
+            fill: #ffffff !important;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .brand-logo {
+            width: 70px;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.35));
+        }
+
+        h1 {
+            color: #a855f7 !important;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .last-update {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            color: #a855f7 !important;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 i {
+            font-size: 1.1rem;
+            color: #a855f7 !important;
+            opacity: 1 !important;
+        }
+
+        p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .back-nav {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .back-link {
+            color: #ffffff !important;
+            background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%) !important;
+            border: none !important;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.38) !important;
+            user-select: none;
+        }
+
+        .back-link i {
+            font-size: 0.95rem;
+            color: #ffffff !important;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .back-link:hover {
+            background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%) !important;
+            color: #ffffff !important;
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.55) !important;
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .back-link:hover i {
+            transform: translateX(-5px) scale(1.2);
+        }
+
+        body[dir="ltr"] .back-link:hover i {
+            transform: translateX(5px) scale(1.2);
+        }
+
+        .back-link:active {
+            transform: translateY(0) scale(0.96);
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.25);
+        }
+
+        .inline-help-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(168, 85, 247, 0.12);
+            border: 1px solid #a855f7;
+            color: #a855f7 !important;
+            padding: 3px 14px;
+            border-radius: 20px;
+            font-size: 0.86rem;
+            font-weight: 800;
+            text-decoration: none;
+            margin-inline-start: 6px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            vertical-align: middle;
+        }
+
+        .inline-help-btn:hover {
+            background: #a855f7 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.45);
+            transform: translateY(-1px);
+        }
+
+        .inline-help-btn i {
+            font-size: 0.82rem;
+            color: inherit !important;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .copyright-line-1 {
+            white-space: nowrap;
+            display: inline-block;
+            color: var(--text-muted);
+        }
+
+        .copyright-line-2, .sahala-purple {
+            white-space: nowrap;
+            display: inline-block;
+            color: #a855f7 !important;
+            font-weight: 800;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 2rem; }
+            h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="themeToggleBtn" class="theme-toggle-btn" type="button" title="تبديل الوضع">
+            <i class="fas fa-sun"></i>
+        </button>
+        <button id="langBtn" class="lang-pill lang-pill-left">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span>EN</span>
+        </button>
+
+        <header>
+            <img src="logo.png" alt="Sahala Logo" class="brand-logo">
+            <h1 data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</h1>
+            <p class="last-update" data-ar="خاص بمنتجات منصة سهالة التقنية - 2026" data-en="For Sahala Technical Platform Products - 2026">خاص بمنتجات منصة سهالة التقنية - 2026</p>
+        </header>
+
+        <section>
+            <h2><i class="fas fa-info-circle"></i> <span data-ar="1. المعلومات التي نجمعها" data-en="1. Information We Collect">1. المعلومات التي نجمعها</span></h2>
+            <p data-ar="نحن نجمع المعلومات التي تزودنا بها مباشرة عند استخدامك لوحة التحكم الإدارية، مثل البيانات الشخصية عند إنشاء الحساب، تحديث كتالوج المنتجات، أو إدارة الطلبات والمبيعات الخاصة بمتجرك."
+               data-en="We collect information you provide directly to us when you use the Admin Panel, such as personal data when you create an account, update product catalog, or manage orders and sales for your store."></p>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-user-check"></i> <span data-ar="2. كيف نستخدم معلوماتك" data-en="2. How We Use Your Information">2. كيف نستخدم معلوماتك</span></h2>
+            <p data-ar="نستخدم المعلومات التي نجمعها لتشغيل النظام، صيانته، وتوفير الميزات المتقدمة للخدمة، بالإضافة إلى التواصل معك لضمان أمان وفعالية بوابة الإدارة الخاصة بك."
+               data-en="We use the information we collect to operate, maintain, and provide the features of the Service, and to communicate with you to ensure the security and efficiency of your admin portal."></p>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-shield-alt"></i> <span data-ar="3. أمن البيانات" data-en="3. Data Security">3. أمن البيانات</span></h2>
+            <p data-ar="نطبق مجموعة واسعة من التدابير الأمنية الصارمة للحفاظ على سلامة معلوماتك. يتم تشفير كافة البيانات الحساسة ونقلها عبر تقنية (SSL) الآمنة وتخزينها في قواعد بيانات محمية."
+               data-en="We implement a wide range of strict security measures to maintain the safety of your information. All sensitive data is encrypted and transmitted via secure SSL technology and stored in protected databases."></p>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-headset"></i> <span data-ar="4. اتصل بنا" data-en="4. Contact Us">4. اتصل بنا</span></h2>
+            <p style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+                <span data-ar="إذا كانت لديك أي استفسارات تتعلق بسياسة الخصوصية هذه، يرجى التواصل مع فريق منصة سهالة التقني مباشرة عبر"
+                      data-en="If you have any questions about this Privacy Policy, please contact the Sahala Technical Team directly through">إذا كانت لديك أي استفسارات تتعلق بسياسة الخصوصية هذه، يرجى التواصل مع فريق منصة سهالة التقني مباشرة عبر</span>
+                <a href="help.html" class="inline-help-btn" title="الانتقال لمركز المساعدة والدعم">
+                    <i class="fas fa-life-ring"></i>
+                    <span data-ar="مركز المساعدة ↗" data-en="Help Center ↗">مركز المساعدة ↗</span>
+                </a>
+            </p>
+        </section>
+
+        <div class="back-nav">
+            <a href="login.html" class="back-link" data-ar="العودة لتسجيل الدخول" data-en="Back to Login">
+                <i class="fas fa-arrow-right"></i> <span>العودة لتسجيل الدخول</span>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p id="main-copyright-text">
+            <span class="copyright-line-1" data-ar="جميع الحقوق محفوظة © 2026" data-en="All rights reserved © 2026">جميع الحقوق محفوظة © 2026</span>
+            <span class="sahala-purple copyright-line-2" data-ar="منصة سهالة — Sahala Platform" data-en="Sahala Platform">منصة سهالة — Sahala Platform</span>
+        </p>
+    </footer>
+
+    <script>
+        const langBtn = document.getElementById('langBtn');
+
+        function updateLanguage(lang) {
+            document.documentElement.setAttribute('lang', lang);
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+            localStorage.setItem('adminLang', lang);
+            langBtn.querySelector('span').textContent = lang === 'ar' ? 'EN' : 'AR';
+
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    const textSpan = el.querySelector('span');
+                    if (textSpan) textSpan.textContent = text;
+                    else el.textContent = text;
+                }
+            });
+
+            // Adjust back icon for English
+            const backIcon = document.querySelector('.back-link i');
+            if (backIcon) {
+                backIcon.className = lang === 'ar' ? 'fas fa-arrow-right' : 'fas fa-arrow-left';
+            }
+        }
+
+        langBtn.addEventListener('click', () => {
+            const currentLang = document.documentElement.getAttribute('lang') || 'ar';
+            updateLanguage(currentLang === 'ar' ? 'en' : 'ar');
+        });
+
+        // Init from storage
+        const savedLang = localStorage.getItem('adminLang') || 'ar';
+        updateLanguage(savedLang);
+
+        // Smart Back Link Detection
+        (function() {
+            const backBtn = document.querySelector('.back-link');
+            if (!backBtn) return;
+            const isAr = (localStorage.getItem('adminLang') || 'ar') === 'ar';
+            const isLoggedIn = sessionStorage.getItem('admin_logged_out') !== 'true';
+
+            if (isLoggedIn) {
+                backBtn.href = 'dashboard.html';
+                const span = backBtn.querySelector('span');
+                if (span) span.textContent = isAr ? 'الرجوع إلى لوحة التحكم' : 'Back to Dashboard';
+                backBtn.setAttribute('data-ar', 'الرجوع إلى لوحة التحكم');
+                backBtn.setAttribute('data-en', 'Back to Dashboard');
+            }
+        })();
+
+        // Theme Toggle Functionality
+        (function() {
+            const themeBtn = document.getElementById('themeToggleBtn');
+            function applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                if (theme === 'light') {
+                    document.body.classList.add('light-mode');
+                    if (themeBtn) themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+                } else {
+                    document.body.classList.remove('light-mode');
+                    if (themeBtn) themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+                }
+                localStorage.setItem('adminTheme', theme);
+            }
+
+            const savedTheme = localStorage.getItem('adminTheme') || 'dark';
+            applyTheme(savedTheme);
+
+            if (themeBtn) {
+                themeBtn.addEventListener('click', function() {
+                    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+                    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

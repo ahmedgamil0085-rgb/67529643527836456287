@@ -1,0 +1,180 @@
+:root, [data-theme="dark"] {
+    /* المتغير الخاص بلون جميع الإطارات (الرمادي الخفيف) */
+    --border-gray: rgba(203, 213, 225, 0.28);
+    --border-purple: var(--border-gray);
+    /* المتغير الخاص بلون جميع الأيقونات (البنفسجي الجميل) */
+    --icon-purple: #a855f7;
+    --icon-yellow: var(--icon-purple);
+    /* المتغير الخاص بلون اسم الموقع فقط (الأصفر) */
+    --brand-yellow: #facc15;
+    /* المتغير الخاص بتحويل اللون الأصفر إلى الأبيض في الوضع الليلي */
+    --text-yellow: #ffffff;
+
+    --admin-primary: var(--text-yellow);
+    --primary-color: var(--text-yellow);
+    --primary-gold: var(--text-yellow);
+    --primary-hover: #f8fafc;
+    --gold-dark: #e2e8f0;
+    --admin-primary-rgb: 255, 255, 255;
+    --accent-red: #f43f5e;
+    --accent-green: #10b981;
+    --accent-gold: var(--text-yellow);
+    --bg-deep: #070f1e;
+    --bg-dark: #0c192e;
+    --bg-darker: #040814;
+    --bg-gradient: radial-gradient(circle at 80% 20%, #0e274c 0%, #070f1e 60%, #030712 100%);
+    --bg-sidebar: #13233d;
+    --bg-card: #13233d;
+    --bg-card-glass: rgba(19, 35, 61, 0.95);
+    --bg-input: #1c3252;
+    --text-main: #f0f7ff;
+    --text-white: #ffffff;
+    --text-muted: #94a3b8;
+    --text-dim: #94a3b8;
+
+    /* ربط جميع متغيرات الإطارات بمتغير اللون الرمادي الخفيف */
+    --glass-border: var(--border-gray);
+    --border-subtle: var(--border-gray);
+    --border-input: var(--border-gray);
+
+    /* متغيرات أسهم الإحصائيات (Stat Arrows) */
+    --stat-arrow-bg: rgba(168, 85, 247, 0.15);
+    --stat-arrow-border: var(--border-gray);
+    --stat-arrow-color: #ffffff;
+    --stat-arrow-hover-bg: var(--icon-purple);
+    --stat-arrow-hover-color: #ffffff;
+
+    /* متغيرات أزرار الإضافة الممتلئة (Solid Add Buttons) */
+    --btn-add-bg: var(--icon-purple);
+    --btn-add-hover: #9333ea;
+    --btn-add-text: #ffffff;
+    --btn-add-border: var(--border-gray);
+    --btn-add-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+
+    /* متغيرات أزرار العرض (جدول وعمود / شجرة) الممتلئة وغير الشفافة */
+    --view-box-bg: #0c192e;
+    --view-box-border: var(--border-gray);
+    --view-btn-bg: #13233d;
+    --view-btn-color: #cbd5e1;
+    --view-btn-border: var(--border-gray);
+    --view-btn-hover-bg: #1c3252;
+    --view-btn-active-bg: var(--icon-purple);
+    --view-btn-active-color: #ffffff;
+    --view-btn-active-border: var(--icon-purple);
+
+    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 20px rgba(203, 213, 225, 0.08);
+    --shadow-hover: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 30px rgba(203, 213, 225, 0.16);
+}
+
+[data-theme="light"], body.light-mode {
+    --border-gray: #cbd5e1;
+    --border-purple: var(--border-gray);
+    --icon-purple: #9333ea;
+    --icon-yellow: var(--icon-purple);
+    /* المتغير الخاص بلون اسم الموقع فقط (الأصفر) */
+    --brand-yellow: #ca8a04;
+    /* المتغير الخاص بتحويل اللون الأصفر إلى الأسود في وضع النهار */
+    --text-yellow: #000000;
+
+    --admin-primary: var(--text-yellow);
+    --primary-color: var(--text-yellow);
+    --primary-gold: var(--text-yellow);
+    --primary-hover: #0f172a;
+    --gold-dark: #1e293b;
+    --admin-primary-rgb: 0, 0, 0;
+    --accent-red: #e11d48;
+    --accent-green: #059669;
+    --accent-gold: var(--text-yellow);
+    --bg-deep: #f0f6ff;
+    --bg-dark: #ffffff;
+    --bg-darker: #e0f2fe;
+    --bg-gradient: radial-gradient(circle at 80% 15%, #e0f2fe 0%, #f0f6ff 50%, #f8fafc 100%);
+    --bg-sidebar: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-glass: rgba(255, 255, 255, 0.98);
+    --bg-input: #f0f7ff;
+    --text-main: #031b33;
+    --text-white: #031b33;
+    --text-muted: #1e3a5f;
+    --text-dim: #1e3a5f;
+
+    --glass-border: var(--border-gray);
+    --border-subtle: var(--border-gray);
+    --border-input: var(--border-gray);
+
+    /* متغيرات أسهم الإحصائيات (Stat Arrows) */
+    --stat-arrow-bg: rgba(147, 51, 234, 0.1);
+    --stat-arrow-border: var(--border-gray);
+    --stat-arrow-color: var(--icon-purple); /* بنفسجي واضح في الوضع العادي */
+    --stat-arrow-hover-bg: var(--icon-purple); /* بنفسجي عند التأشير بدل الأسود */
+    --stat-arrow-hover-color: #ffffff; /* أبيض ناصع فوق البنفسجي حتى لا يختفي أبداً */
+
+    /* متغيرات أزرار الإضافة الممتلئة (Solid Add Buttons) */
+    --btn-add-bg: var(--icon-purple);
+    --btn-add-hover: #7e22ce;
+    --btn-add-text: #ffffff;
+    --btn-add-border: var(--border-gray);
+    --btn-add-shadow: 0 4px 15px rgba(147, 51, 234, 0.35);
+
+    /* متغيرات أزرار العرض (جدول وعمود / شجرة) الممتلئة وغير الشفافة */
+    --view-box-bg: #e2e8f0;
+    --view-box-border: var(--border-gray);
+    --view-btn-bg: #ffffff; /* ممتلئ غير شفاف */
+    --view-btn-color: #334155;
+    --view-btn-border: var(--border-gray);
+    --view-btn-hover-bg: #f8fafc;
+    --view-btn-active-bg: var(--icon-purple); /* ممتلئ بنفسجي */
+    --view-btn-active-color: #ffffff;
+    --view-btn-active-border: var(--icon-purple);
+
+    --shadow-card: 0 10px 30px rgba(100, 116, 139, 0.08), 0 4px 10px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 20px 45px rgba(100, 116, 139, 0.16), 0 8px 15px rgba(0, 0, 0, 0.05);
+}
+
+.theme-toggle-btn {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background: rgba(168, 85, 247, 0.1) !important;
+    border: 1.5px solid #a855f7 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    user-select: none !important;
+    flex-shrink: 0 !important;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(168, 85, 247, 0.22) !important;
+    border-color: #c084fc !important;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4) !important;
+    transform: scale(1.08) rotate(15deg) !important;
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.92) !important;
+}
+
+.theme-toggle-btn i {
+    font-size: 1.1rem !important;
+    transition: transform 0.4s ease, color 0.3s ease !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+.theme-toggle-btn i.fa-sun {
+    color: #a855f7 !important;
+    filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.6)) !important;
+}
+
+.theme-toggle-btn i.fa-moon {
+    color: #7c3aed !important;
+    filter: drop-shadow(0 0 5px rgba(124, 58, 237, 0.4)) !important;
+}
+
+.theme-toggle-btn:hover i {
+    transform: rotate(20deg) scale(1.15) !important;
+}
